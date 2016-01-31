@@ -18,7 +18,10 @@ setup(name='milktea.instagramfeed',
       keywords='',
       author='Millkea',
       author_email='sescatalan@gmail.com',
-      url='http://github.com/milktea/',
+      url = 'https://github.com/milktea/milktea.instagramfeed', # URL to the github repo
+      download_url = 'https://github.com/milktea/milktea.instagramfeed/tarball/1.0', # Version tag
+      keywords = ['plone', 'portlet', 'instagram', 'feed', 'product'], # arbitrary keywords
+
       license='gpl',
       packages=find_packages(),
       namespace_packages=['milktea'],
