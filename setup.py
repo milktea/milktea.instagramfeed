@@ -15,7 +15,6 @@ setup(name='milktea.instagramfeed',
         "Programming Language :: Python",
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
-      keywords='',
       author='Millkea',
       author_email='sescatalan@gmail.com',
       url = 'https://github.com/milktea/milktea.instagramfeed', # URL to the github repo
