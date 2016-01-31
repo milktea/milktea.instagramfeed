@@ -20,8 +20,13 @@ grok.templatedir('templates')
 
 class IContentNavigation(IPortletDataProvider):
 
+    portlet_title = schema.TextLine(
+        title=u'Portlet Title',
+        default=u"Latest Instagram Posts",
+        required=False)
+
     instagram_username = schema.TextLine(
-        title=u'Instagram hashtags',
+        title=u'Instagram Username or Hashtags',
         required=False,
         description=u"Override default instagram username or hashtags of the entire site (Config at http://localhost:8080/Plone/@@twitter-controlpanel). "
                     u'Please specify hashtags in a comma-separated list, e.g. #shoes, #tea. '
@@ -30,12 +35,23 @@ class IContentNavigation(IPortletDataProvider):
                     u"If you plan to use the default, leave blank. "
     )
 
+    no_posts = schema.Int(
+        title=u'Number of posts to be shown',
+        default=10)
+
+    portlet_height=schema.TextLine(
+        title=u"Height of Portlet",
+        description=u"e.g. '500px'",
+        default=u'500px')
+
 class Assignment(base.Assignment):
     implements(IContentNavigation)
     
-    def __init__(self, instagram_username=None):
+    def __init__(self, instagram_username=None, no_posts=None, portlet_title=None, portlet_height=None):
         self.instagram_username = instagram_username
-       
+        self.no_posts = no_posts
+        self.portlet_title = portlet_title
+        self.portlet_height = portlet_height
        
     @property
     def title(self):
@@ -51,7 +67,10 @@ class Renderer(base.Renderer):
         self.manager = manager
         self.data = data
         
-    def contents(self):
+    def data(self):
+        return self.data
+
+    def insta_contents(self):
         portlet_username = self.data.instagram_username
         if portlet_username:
             return portlet_username
@@ -67,7 +86,7 @@ class Renderer(base.Renderer):
         return instagram_username
 
     def instagram_hashtags_joined(self):
-        hashtag = self.contents()
+        hashtag = self.insta_contents()
         if not hashtag or '@' in hashtag:
             return u''
         return u','.join(map(
@@ -83,7 +102,7 @@ class Renderer(base.Renderer):
             return u','.join(map(lambda x: x.strip(),hashtag.replace('#', '').split(' ')))
 
     def instagram_user_feed(self):
-        hashtag = self.contents()
+        hashtag = self.insta_contents()
         if not hashtag or '#' in hashtag:
             return u''
         return hashtag.replace('@', '').strip()

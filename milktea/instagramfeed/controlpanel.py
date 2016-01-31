@@ -10,7 +10,7 @@ from milktea.instagramfeed import MessageFactory as _
 
 class IInstagramSettings(Interface):
     instagram_username = schema.TextLine(
-        title=u'Instagram hashtags',
+        title=u'Instagram Username or Hashtags',
         required=True,
         description=u'Instagram username or hashtags for the entire site. '
         			u'Please specify hashtags in a comma-separated list, e.g. #shoes, #tea. '
