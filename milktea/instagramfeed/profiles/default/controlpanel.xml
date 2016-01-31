@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+    <configlet
+        title="Instagram Feed Portlet Settings"
+        action_id="milktea.instagramfeed.settings"
+        appId="milktea.instagramfeed"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@instagram-controlpanel"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

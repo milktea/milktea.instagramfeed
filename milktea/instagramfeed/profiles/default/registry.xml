@@ -1,0 +1,3 @@
+<registry>    
+    <records interface="milktea.instagramfeed.controlpanel.IInstagramSettings" />
+</registry>
