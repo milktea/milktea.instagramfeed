@@ -55,7 +55,7 @@ class Assignment(base.Assignment):
        
     @property
     def title(self):
-        return "Add Milktea Instagram Feed Portlet"
+        return "Milktea Instagram Feed Portlet"
     
 
 class Renderer(base.Renderer):
