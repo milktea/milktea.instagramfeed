@@ -22,4 +22,11 @@
 
     <!-- -*- extra stuff goes here -*- -->
 
+    <browser:page
+        name="instagram-controlpanel"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="cmf.ManagePortal"
+        class=".controlpanel.InstagramControlPanelView"
+    />
+
 </configure>

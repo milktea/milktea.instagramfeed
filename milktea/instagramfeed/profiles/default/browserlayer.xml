@@ -2,4 +2,8 @@
 <layers>
     <layer name="milktea.instagramfeed"
         interface="milktea.instagramfeed.interfaces.IProductSpecific" />
+
+    <layer name="milktea.instagramfeed"
+        interface="milktea.instagramfeed.interfaces.IInstagramLayer" />
+
 </layers>

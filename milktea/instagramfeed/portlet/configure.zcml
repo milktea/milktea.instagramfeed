@@ -6,4 +6,14 @@
     <include package="plone.app.portlets" file="permissions.zcml"/>
     <!-- -*- extra stuff goes here -*- -->
 
+    <plone:portlet
+        name="instagramfeedportlet.portlet"
+        interface=".instagramfeedportlet.IContentNavigation"
+        assignment=".instagramfeedportlet.Assignment"
+        renderer=".instagramfeedportlet.Renderer"
+        addview=".instagramfeedportlet.AddForm"
+        editview=".instagramfeedportlet.EditForm"
+        />
+
+
 </configure>
